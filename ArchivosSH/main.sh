@@ -41,16 +41,6 @@ normal=$(tput sgr0)
 trap 'echo "No se puede salir con ctrl+c"' SIGINT
 trap 'echo "No se puede salir con ctrl+c"' SIGTSTP
 
-#sudo cp inicio.sh /usr/local/bin/
-#sudo cp creditos.sh /usr/local/bin/
-#sudo cp game.sh /usr/local/bin/
-#sudo cp feho.sh /usr/local/bin/
-#sudo cp search.sh /usr/local/bin/
-#sudo cp ayuda.sh /usr/local/bin/
-#sudo cp bashmusic.sh /usr/local/bin/
-#sudo cp infosys.sh /usr/local/bin/
-
-
 #############################################################################################################################################
 #                                                                                                                                           #
 #                                                Comandos de decoración                                                                     #
@@ -88,54 +78,58 @@ despedida () {
 #############################################################################################################################################
 
 main () {
-    superUsuario
-    ./inicio.sh
-    comando=""
-    until [ "$comando" = "exit" ]; do
-        prompt
-        case "$comando" in 
-            "feho")
-                ./feho.sh
-                ;;
-            
-            "creditos")
-                ./creditos.sh
-                ;;
-            
-            "game")
-                ./game.sh
-                ;;
-            
-            "search")
-                ./search.sh
-                ;;
-            
-            #"ayuda")
-                #./ayuda.sh
-                #;;
-            
-            #"infosys")
-                #./infosys.sh
-                #;;
+    
+    ./login.sh
+    codigo_salida=$?
+    if [ $codigo_salida -eq 0 ]; then
+        ./inicio.sh
+        comando=""
+        until [ "$comando" = "exit" ]; do
+            prompt
+            case "$comando" in 
+                "feho")
+                    ./feho.sh
+                    ;;
+                
+                "creditos")
+                    ./creditos.sh
+                    ;;
+                
+                "game")
+                    ./game.sh
+                    ;;
+                
+                "search")
+                    ./search.sh
+                    ;;
+                
+                #"ayuda")
+                    #./ayuda.sh
+                    #;;
+                
+                #"infosys")
+                    #./infosys.sh
+                    #;;
 
-            #"bashmusic")
-                #./bashmusic.sh
-                #;;
-            
-            "clear")
-                clear
-                printf "\n🟩🟨🟧🟥🟪🟦🟩🟨🟧🟥🟪🟦🟩🟨🟧🟥🟪🟦🟩🟨🟧🟥🟪🟦🟩🟨🟧\n"
-                ;;
+                #"bashmusic")
+                    #./bashmusic.sh
+                    #;;
+                
+                "clear")
+                    clear
+                    printf "\n🟩🟨🟧🟥🟪🟦🟩🟨🟧🟥🟪🟦🟩🟨🟧🟥🟪🟦🟩🟨🟧🟥🟪🟦🟩🟨🟧\n"
+                    ;;
 
-            "exit")
-                despedida
-                ;;
+                "exit")
+                    despedida
+                    ;;
 
-            *)
-                echo -e "\n\t${r}***Error: comando no válido.${b}"
-                ;;
-        esac
-    done
+                *)
+                    echo -e "\n\t${r}***Error: comando no válido.${b}"
+                    ;;
+            esac
+        done    
+    fi
 }
 
 main
