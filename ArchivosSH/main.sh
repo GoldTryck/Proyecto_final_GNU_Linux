@@ -41,16 +41,6 @@ normal=$(tput sgr0)
 trap 'echo "No se puede salir con ctrl+c"' SIGINT
 trap 'echo "No se puede salir con ctrl+c"' SIGTSTP
 
-superUsuario () {
-sudo chmod +x inicio.sh
-sudo chmod +x creditos.sh
-sudo chmod +x game.sh
-sudo chmod +x feho.sh
-sudo chmod +x search.sh
-#sudo chmod +x ayuda.sh
-#sudo chmod +x bashmusic.sh
-#sudo chmod +x infosys.sh
-
 #sudo cp inicio.sh /usr/local/bin/
 #sudo cp creditos.sh /usr/local/bin/
 #sudo cp game.sh /usr/local/bin/
@@ -60,7 +50,6 @@ sudo chmod +x search.sh
 #sudo cp bashmusic.sh /usr/local/bin/
 #sudo cp infosys.sh /usr/local/bin/
 
-}
 
 #############################################################################################################################################
 #                                                                                                                                           #
