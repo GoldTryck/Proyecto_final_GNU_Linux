@@ -107,9 +107,9 @@ main () {
                     ./ayuda.sh
                     ;;
                 
-                #"infosys")
-                    #./infosys.sh
-                    #;;
+                "infosys")
+                    ./infosys.sh
+                    ;;
 
                 "bashmusic")
                     ./bashmusic.sh
