@@ -41,8 +41,6 @@ normal=$(tput sgr0)
 trap 'echo "No se puede salir con ctrl+c"' SIGINT
 trap 'echo "No se puede salir con ctrl+c"' SIGTSTP
 
-
-
 #############################################################################################################################################
 #                                                                                                                                           #
 #                                                Comandos de decoración                                                                     #
@@ -80,7 +78,7 @@ despedida () {
 #############################################################################################################################################
 
 main () {
-    clear
+    
     ./login.sh
     codigo_salida=$?
     if [ $codigo_salida -eq 0 ]; then
@@ -105,17 +103,17 @@ main () {
                     ./search.sh
                     ;;
                 
-                "ayuda")
-                    ./ayuda.sh
-                    ;;
+                #"ayuda")
+                    #./ayuda.sh
+                    #;;
                 
-                "infosys")
-                    ./infosys.sh
-                    ;;
+                #"infosys")
+                    #./infosys.sh
+                    #;;
 
-                "bashmusic")
-                    ./bashmusic.sh
-                    ;;
+                #"bashmusic")
+                    #./bashmusic.sh
+                    #;;
                 
                 "clear")
                     clear
