@@ -111,9 +111,9 @@ main () {
                     #./infosys.sh
                     #;;
 
-                #"bashmusic")
-                    #./bashmusic.sh
-                    #;;
+                "bashmusic")
+                    ./bashmusic.sh
+                    ;;
                 
                 "clear")
                     clear
