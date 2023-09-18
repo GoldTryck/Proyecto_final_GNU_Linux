@@ -46,15 +46,16 @@ trap 'echo "No se puede salir con ctrl+c"' SIGTSTP
 #                                                Comandos de decoración                                                                     #
 #                                                                                                                                           #        
 #############################################################################################################################################
-
-hora=$(grep "rtc_time" /proc/driver/rtc | awk '{print $3}')
-IFS=":" read -ra time <<< "$hora"
-hour=${time[0]}
-min=${time[1]}
-sec=${time[2]}
-hour=$(($hour+6))
-
+get_time() {
+    hora=$(grep "rtc_time" /proc/driver/rtc | awk '{print $3}')
+    IFS=":" read -ra time <<< "$hora"
+    hour=${time[0]}
+    min=${time[1]}
+    sec=${time[2]}
+    hour=$(($hour))
+}
 prompt () {
+    get_time
     echo -ne "\n${az}╔╣ ${v}${bold}$(whoami)${b}${normal}@${t}${bold}$(hostname) ${normal}${az}╠══╣ ${m}${bold}$hour:$min:$sec ${normal}${az}║\n${az}╚═╣ ${r}${bold}$ ${normal}${az}╠═${bold}${r}>${v}>${t}>${normal}${b} "
     read comando
 }
