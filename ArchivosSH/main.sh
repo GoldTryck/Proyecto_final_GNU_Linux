@@ -103,9 +103,9 @@ main () {
                     ./search.sh
                     ;;
                 
-                #"ayuda")
-                    #./ayuda.sh
-                    #;;
+                "ayuda")
+                    ./ayuda.sh
+                    ;;
                 
                 #"infosys")
                     #./infosys.sh
