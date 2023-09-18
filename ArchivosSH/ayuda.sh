@@ -24,8 +24,7 @@ comandos=(
     "infosys  " 
     "game     "
     "bashmusic"
-    "exit     "
-    "clear    ")
+    "exit     ")
 descripciones=(
     "Muestra lista de comandos disponibles y una descripcion de su funcionamiento.    "
     "Muestra la fecha y la hora actual.                                               "
@@ -34,8 +33,7 @@ descripciones=(
     "Muestra los datos técnicos de sistema y hardware.                                "
     "Permite al usuario interactuar con diferentes juegos de terminal preestablecidos."
     "Abre un eproductor de musica con interfaz gráfica.                               "
-    "Terminar la ejecución del programa.                                              "
-    "Limpiar terminal.                                                                ")
+    "Terminar la ejecución del programa.                                              ")
 
     clear
 
@@ -45,7 +43,7 @@ descripciones=(
     printf "\n                     🟫🟨  🟫🟨   🟫🟨🟫🟨  🟫🟨  🟫🟨 🟫🟨  🟫🟨 🟫🟨  🟫🟨"
     printf "\n                     🟫🟨🟨🟨🟨     🟫🟨    🟫🟨  🟫🟨 🟫🟨  🟫🟨 🟫🟨🟨🟨🟨"
     printf "\n                     🟫🟨  🟫🟨     🟫🟨    🟫🟨  🟫🟨 🟫🟨  🟫🟨 🟫🟨  🟫🟨"
-    printf "\n                     🟫🟨  🟫🟨     🟫🟨    🟫🟨🟨🟨🟨 🟫🟨🟨🟨   🟫🟨  🟫🟨\n"
+    printf "\n                     🟫🟨  🟫🟨     🟫🟨    🟫🟨🟨🟫🟨 🟫🟨🟨🟨   🟫🟨  🟫🟨\n"
 
     printf "\n🟩🟨🟧🟥🟪🟦🟩🟨🟧🟥🟪🟦🟩🟨🟧🟥🟪🟦🟩🟨🟧🟥🟪🟦🟩🟨🟧🟥🟪🟦🟩🟨🟧🟥🟪🟦🟩🟨🟧🟥🟪🟦🟩🟨🟧🟦🟩🟥\n"
 
@@ -63,5 +61,4 @@ descripciones=(
     done
 
     echo -e "╚═══════════╩═══════════════════════════════════════════════════════════════════════════════════╝${normal}${b}"
-
-    echo -e "╚═══════════╩═══════════════════════════════════════════════════════════════════════════════════╝${normal}${b}"
+    
