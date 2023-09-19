@@ -24,7 +24,8 @@ comandos=(
     "infosys  " 
     "game     "
     "bashmusic"
-    "exit     ")
+    "exit     "
+    "clear    ")
 descripciones=(
     "Muestra lista de comandos disponibles y una descripcion de su funcionamiento.    "
     "Muestra la fecha y la hora actual.                                               "
@@ -33,7 +34,8 @@ descripciones=(
     "Muestra los datos técnicos de sistema y hardware.                                "
     "Permite al usuario interactuar con diferentes juegos de terminal preestablecidos."
     "Abre un eproductor de musica con interfaz gráfica.                               "
-    "Terminar la ejecución del programa.                                              ")
+    "Terminar la ejecución del programa.                                              "
+    "Limpiar terminal.                                                                 ")
 
     clear
 
