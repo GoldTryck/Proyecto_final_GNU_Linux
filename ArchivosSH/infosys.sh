@@ -29,6 +29,8 @@ show_info "Kernel:              " "$(uname -r)"
 # Información de la CPU
 show_info "CPU:                 " "$(grep -m1 "model name" /proc/cpuinfo | cut -d: -f2- | xargs)"
 show_info "Arquitectura:        " "$(uname -m)"
+show_info "CPU:                 " "$(grep -m1 "model name" /proc/cpuinfo | cut -d: -f2- | xargs)"
+show_info "Arquitectura:        " "$(uname -m)"
 
 # Información de la memoria
 show_info "Memoria total:       " "$(free -h --si | awk '/Mem:/ {print $2}')"
