@@ -35,7 +35,7 @@ descripciones=(
     "Permite al usuario interactuar con diferentes juegos de terminal preestablecidos."
     "Abre un eproductor de musica con interfaz gráfica.                               "
     "Terminar la ejecución del programa.                                              "
-    "Limpiar terminal.                                                                 ")
+    "Limpiar terminal.                                                                ")
 
     clear
 
@@ -45,7 +45,7 @@ descripciones=(
     printf "\n                     🟫🟨  🟫🟨   🟫🟨🟫🟨  🟫🟨  🟫🟨 🟫🟨  🟫🟨 🟫🟨  🟫🟨"
     printf "\n                     🟫🟨🟨🟨🟨     🟫🟨    🟫🟨  🟫🟨 🟫🟨  🟫🟨 🟫🟨🟨🟨🟨"
     printf "\n                     🟫🟨  🟫🟨     🟫🟨    🟫🟨  🟫🟨 🟫🟨  🟫🟨 🟫🟨  🟫🟨"
-    printf "\n                     🟫🟨  🟫🟨     🟫🟨    🟫🟨🟨🟫🟨 🟫🟨🟨🟨   🟫🟨  🟫🟨\n"
+    printf "\n                     🟫🟨  🟫🟨     🟫🟨    🟫🟨🟨🟨🟨 🟫🟨🟨🟨   🟫🟨  🟫🟨\n"
 
     printf "\n🟩🟨🟧🟥🟪🟦🟩🟨🟧🟥🟪🟦🟩🟨🟧🟥🟪🟦🟩🟨🟧🟥🟪🟦🟩🟨🟧🟥🟪🟦🟩🟨🟧🟥🟪🟦🟩🟨🟧🟥🟪🟦🟩🟨🟧🟦🟩🟥\n"
 
