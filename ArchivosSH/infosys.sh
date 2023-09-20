@@ -22,7 +22,7 @@ show_info() {
 
 # Información del sistema
 show_info "Sistema:             " "$(uname -s)"
-show_info "Hostname:            " "$(hostname)"
+show_info "Hostname:            " "$HOSTNAME"
 show_info "Distribución:        " "$(cat /etc/os-release | grep -i '^PRETTY_NAME=' | cut -d= -f2- | tr -d '"')"
 show_info "Kernel:              " "$(uname -r)"
 
