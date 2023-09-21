@@ -42,14 +42,14 @@ IFS=":" read -ra time <<< "$hora"
 hour=${time[0]}
 min=${time[1]}
 sec=${time[2]}
-hour=$(($hour+6))
+hour=$(($hour))
 
 fecha=$(grep "rtc_date" /proc/driver/rtc | awk '{print $3}')
 IFS="-" read -ra date <<< "$fecha"
 year=${date[0]}
 month=${date[1]}
 day=${date[2]}
-day=$(($day-1))
+day=$(($day))
 
 printf "\n🟩🟨🟧🟥🟪🟦🟩🟨🟧🟥🟪🟦🟩🟨🟧🟥🟪🟦🟩🟨🟧🟥🟪🟦🟩🟨🟧\n"
 
