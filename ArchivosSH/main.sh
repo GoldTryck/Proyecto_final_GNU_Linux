@@ -1,5 +1,5 @@
 #!/bin/bash
-
+source ./comandos.bashrc
 #############################################################################################################################################
 #                                                                                                                                           #
 #                                                     Explicación del archivo                                                               #
@@ -41,42 +41,22 @@ normal=$(tput sgr0)
 trap 'echo "No se puede salir con ctrl+c"' SIGINT
 trap 'echo "No se puede salir con ctrl+c"' SIGTSTP
 
-superUsuario () {
-sudo chmod +x inicio.sh
-sudo chmod +x creditos.sh
-sudo chmod +x game.sh
-sudo chmod +x feho.sh
-sudo chmod +x search.sh
-#sudo chmod +x ayuda.sh
-#sudo chmod +x bashmusic.sh
-#sudo chmod +x infosys.sh
-
-#sudo cp inicio.sh /usr/local/bin/
-#sudo cp creditos.sh /usr/local/bin/
-#sudo cp game.sh /usr/local/bin/
-#sudo cp feho.sh /usr/local/bin/
-#sudo cp search.sh /usr/local/bin/
-#sudo cp ayuda.sh /usr/local/bin/
-#sudo cp bashmusic.sh /usr/local/bin/
-#sudo cp infosys.sh /usr/local/bin/
-
-}
-
 #############################################################################################################################################
 #                                                                                                                                           #
 #                                                Comandos de decoración                                                                     #
 #                                                                                                                                           #        
 #############################################################################################################################################
-
-hora=$(grep "rtc_time" /proc/driver/rtc | awk '{print $3}')
-IFS=":" read -ra time <<< "$hora"
-hour=${time[0]}
-min=${time[1]}
-sec=${time[2]}
-hour=$(($hour+6))
-
+get_time() {
+    hora=$(grep "rtc_time" /proc/driver/rtc | awk '{print $3}')
+    IFS=":" read -ra time <<< "$hora"
+    hour=${time[0]}
+    min=${time[1]}
+    sec=${time[2]}
+    hour=$(($hour))
+}
 prompt () {
-    echo -ne "\n${az}╔╣ ${v}${bold}$(whoami)${b}${normal}@${t}${bold}$(hostname) ${normal}${az}╠══╣ ${m}${bold}$hour:$min:$sec ${normal}${az}║\n${az}╚═╣ ${r}${bold}$ ${normal}${az}╠═${bold}${r}>${v}>${t}>${normal}${b} "
+    get_time
+    echo -ne "\n${az}╔╣ ${v}${bold}$(whoami)${b}${normal}@${t}${bold}$HOSTNAME ${normal}${az}╠══╣ ${m}${bold}$hour:$min:$sec ${normal}${az}║\n${az}╚═╣ ${r}${bold}$ ${normal}${az}╠═${bold}${r}>${v}>${t}>${normal}${b} "
     read comando
 }
 
@@ -99,54 +79,58 @@ despedida () {
 #############################################################################################################################################
 
 main () {
-    superUsuario
-    ./inicio.sh
-    comando=""
-    until [ "$comando" = "exit" ]; do
-        prompt
-        case "$comando" in 
-            "feho")
-                ./feho.sh
-                ;;
-            
-            "creditos")
-                ./creditos.sh
-                ;;
-            
-            "game")
-                ./game.sh
-                ;;
-            
-            "search")
-                ./search.sh
-                ;;
-            
-            #"ayuda")
-                #./ayuda.sh
-                #;;
-            
-            #"infosys")
-                #./infosys.sh
-                #;;
+    clear
+    ./login.sh
+    codigo_salida=$?
+    if [ $codigo_salida -eq 0 ]; then
+        ./inicio.sh
+        comando=""
+        until [ "$comando" = "exit" ]; do
+            prompt
+            case "$comando" in 
+                "feho")
+                    ./feho.sh
+                    ;;
+                
+                "creditos")
+                    ./creditos.sh
+                    ;;
+                
+                "game")
+                    ./game.sh
+                    ;;
+                
+                "search")
+                    ./search.sh
+                    ;;
+                
+                "ayuda")
+                    ./ayuda.sh
+                    ;;
+                
+                "infosys")
+                    ./infosys.sh
+                    ;;
 
-            #"bashmusic")
-                #./bashmusic.sh
-                #;;
-            
-            "clear")
-                clear
-                printf "\n🟩🟨🟧🟥🟪🟦🟩🟨🟧🟥🟪🟦🟩🟨🟧🟥🟪🟦🟩🟨🟧🟥🟪🟦🟩🟨🟧\n"
-                ;;
+                "bashmusic")
+                    ./bashmusic.sh
+                    ;;
+                
+                "clear")
+                    clear
+                    printf "\n🟩🟨🟧🟥🟪🟦🟩🟨🟧🟥🟪🟦🟩🟨🟧🟥🟪🟦🟩🟨🟧🟥🟪🟦🟩🟨🟧\n"
+                    ;;
 
-            "exit")
-                despedida
-                ;;
+                "exit")
+                    despedida
+                    ;;
 
-            *)
-                echo -e "\n\t${r}***Error: comando no válido.${b}"
-                ;;
-        esac
-    done
+                *)
+                    echo -e "\n\t${r}***Error: comando no válido.${b}"
+                    ;;
+            esac
+        done    
+    fi
 }
 
 main
