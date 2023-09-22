@@ -42,14 +42,13 @@ IFS=":" read -ra time <<< "$hora"
 hour=${time[0]}
 min=${time[1]}
 sec=${time[2]}
-hour=$(($hour))
+
 
 fecha=$(grep "rtc_date" /proc/driver/rtc | awk '{print $3}')
 IFS="-" read -ra date <<< "$fecha"
 year=${date[0]}
 month=${date[1]}
 day=${date[2]}
-day=$(($day))
 
 printf "\n🟩🟨🟧🟥🟪🟦🟩🟨🟧🟥🟪🟦🟩🟨🟧🟥🟪🟦🟩🟨🟧🟥🟪🟦🟩🟨🟧\n"
 
@@ -77,13 +76,11 @@ printf "\n🟩🟨🟧🟥🟪🟦🟩🟨🟧🟥🟪🟦🟩🟨🟧🟥🟪�
 # hour=${time[0]}                                              = Se asigna a una variable el elemento del arr "time" que corresponde.
 # min=${time[1]}                                               = Se asigna a una variable el elemento del arr "time" que corresponde.
 # sec=${time[2]}                                               = Se asigna a una variable el elemento del arr "time" que corresponde.
-# hour=$(($hour+6))                                            = Se suma +6 a la variable horas para arreglar un error en el cómando.
 
 # fecha=$(grep "rtc_date" /proc/driver/rtc | awk '{print $3}') = Se obtiene la cadena que corresponde a la fecha desde el archivo rtc.
 # IFS="-" read -ra date <<< "$fecha"                           = Se hace un "split" a la cadena "fecha", lo que retorna un arreglo "date".
 # year=${date[0]}                                              = Se asigna a una variable el elemento del arr "date" que corresponde.     
 # month=${date[1]}                                             = Se asigna a una variable el elemento del arr "date" que corresponde.     
 # day=${date[2]}                                               = Se asigna a una variable el elemento del arr "date" que corresponde.     
-# day=$(($day-1))                                              = Se resta -1 a la variable day para arreglar un error en el cómando.
 
 #############################################################################################################################################

@@ -52,7 +52,6 @@ get_time() {
     hour=${time[0]}
     min=${time[1]}
     sec=${time[2]}
-    hour=$(($hour))
 }
 prompt () {
     get_time
