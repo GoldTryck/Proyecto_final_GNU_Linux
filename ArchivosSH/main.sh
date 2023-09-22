@@ -1,5 +1,4 @@
 #!/bin/bash
-source ./comandos.bashrc
 #############################################################################################################################################
 #                                                                                                                                           #
 #                                                     Explicación del archivo                                                               #
@@ -52,11 +51,10 @@ get_time() {
     hour=${time[0]}
     min=${time[1]}
     sec=${time[2]}
-    hour=$(($hour))
 }
 prompt () {
     get_time
-    echo -ne "\n${az}╔╣ ${v}${bold}$(whoami)${b}${normal}@${t}${bold}$HOSTNAME ${normal}${az}╠══╣ ${m}${bold}$hour:$min:$sec ${normal}${az}║\n${az}╚═╣ ${r}${bold}$ ${normal}${az}╠═${bold}${r}>${v}>${t}>${normal}${b} "
+    echo -ne "\n${az}╔╣ ${v}${bold}$(whoami)${b}${normal}@${t}${bold}$(hostname) ${normal}${az}╠══╣ ${m}${bold}$hour:$min:$sec ${normal}${az}║\n${az}╚═╣ ${r}${bold}$ ${normal}${az}╠═${bold}${r}>${v}>${t}>${normal}${b} "
     read comando
 }
 

@@ -49,16 +49,12 @@ cambiar_dir(){
   	sleep 2
 }
 menu(){
-	opc=()
 	echo -e "\n\t${bold}${am}SELECCIONE LA OPCION DE REPRODUCCION DE SU PREFERENCIA:${normal}${b}\n\n"
 	show_opc "1)" "Reproducir una canción en el directorio seleccionado ($(pwd)).\n"
 	show_opc "2)" "Reproducir todas las canciones en el directorio seleccionado\n"
 	show_opc "3)" "Reproducir todas las canciones en el directorio seleccionado (ALEATORIO)\n"
 	show_opc "4)" "Cambiar el directorio seleccionado\n"
 	show_opc "5)" "Salir\n"
-	printf "> "
-	read opc
-	return "$opc"
 }
 controles(){
 	acciones=(
@@ -133,13 +129,15 @@ rep_lista(){
 	fi
 }
 reproductor(){
+	opc=()
 	while true 
 	do
 		clear
 		saludo
 		menu
-		salida_menu=$?
-		case $salida_menu in
+		echo -n "> "
+		read opc
+		case "$opc" in
 			1)
 				rep_cancion
 				;;
