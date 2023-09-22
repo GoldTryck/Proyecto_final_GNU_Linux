@@ -47,7 +47,7 @@ sec=${time[2]}
 hour=$(($hour+6))
 
 prompt () {
-    echo -ne "\n${az}╔╣ ${v}${bold}$(whoami)${b}${normal}@${t}${bold}$(hostname) ${normal}${az}╠══╣ ${m}${bold}$hour:$min:$sec ${normal}${az}╠══╣ ${b}$1 ${normal}${az}║\n${az}╚═╣ ${r}${bold}$ ${normal}${az}╠═${bold}${r}>${v}>${t}>${normal}${b} "
+    echo -ne "\n${az}╔╣ ${v}${bold}$(whoami)${b}${normal}@${t}${bold}$HOSTNAME ${normal}${az}╠══╣ ${m}${bold}$hour:$min:$sec ${normal}${az}╠══╣ ${b}$1 ${normal}${az}║\n${az}╚═╣ ${r}${bold}$ ${normal}${az}╠═${bold}${r}>${v}>${t}>${normal}${b} "
     read nombre
 }
 
