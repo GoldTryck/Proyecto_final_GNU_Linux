@@ -23,12 +23,15 @@
   
 <br>
 
-- ❓ ayuda: muestra una lista de los comandos disponibles y una breve descripción de su funcionamiento.                        
+<img src="Images/bash.jpg" align="right" width="40%" />
+
+- ❓ ayuda: muestra una lista de los comandos disponibles.                        
 - ⌛ feho: muestra la hora y fecha actual.
 - 🤵 creditos: despliega los créditos de todo el código. 
 - 🔎 search: busca un archivo especificado en la ubicación dada. 
 - 🗃️ infosys: muestra los datos técnicos del sistema operativo de hardware. 
-- 🎮 game: permite al usuario interactuar con diferentes juegos de terminal preestablecidos.               
+- 🎮 game: permite al usuario interactuar con mini juegos.               
 - 🎶 bashmusic: abre un reproductor de música con interfaz gráfica.           
 - 🏃 exit: termina la ejecución del programa.     
 - ⬜ clear: limpia la pantalla. 
+
