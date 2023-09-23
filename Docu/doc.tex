@@ -3,6 +3,7 @@
 \graphicspath{{img/}}
 \usepackage[spanish]{babel}
 \usepackage{float}
+\usepackage{listings}
 
 \title{Proyecto: Shell}
 \author{Hector Manuel Larios Ponce y Gabriel Patricio Balam Flores}
@@ -104,36 +105,69 @@ day=${date[2]}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{feho.png}
+    \includegraphics[width=0.9\textwidth]{feho.png}
     \caption{Ejecución del comando \textbf{feho}:}
     \label{fig:ejemplo}
 \end{figure}
 
 % search -----------------------------------------------
+\newpage
 \noindent
 \textbf{Comando:} \verb|search|. \\
-\textbf{Descripción:} al escribir el comando te redirige a un apartado donde se te piden dos parámetros, el nombre del archivo a buscar y la ruta donde se va a buscar. Si la ruta dada no es absoluta, el programa lo detecta y cambia a un modo automático de ruta relativa partiendo de HOME.
+\textbf{Descripción:} al escribir el comando te redirige a un apartado donde se te piden dos parámetros, el nombre del archivo a buscar y la ruta donde se va a buscar. Si la ruta dada no es absoluta, el programa lo detecta y cambia a un modo automático de ruta relativa partiendo de HOME.\\
+
+\noindent
+\textbf{Código:}
+\begin{lstlisting}
+if [ -e "$ruta/$archivo"  ]; then
+    echo -e "\n\t${v}El archivo se ha encontrado con exito."
+    echo -e "\n\t${am}Listado de la ruta: ${b}"
+    ls $ruta
+
+elif [ -e "$HOME/$ruta/$archivo" ]; then
+    echo -e "\n\t${v}El archivo se ha encontrado con exito."
+    echo -e "\n\t${am}Listado de la ruta: ${b}"
+    ls $HOME/$ruta
+else
+    echo -e "\n\t${r}El archivo no se ha encontrado."
+fi
+\end{lstlisting}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\textwidth]{search.png}
+    \includegraphics[width=1\textwidth]{search.png}
     \caption{Ejecución del comando \textbf{search}:}
     \label{fig:ejemplo}
 \end{figure}
 
 % infosys -----------------------------------------------
+\newpage
 \noindent
 \textbf{Comando:} \verb|infosys|. \\
-\textbf{Descripción:} muestra algunos datos técnicos del sistema operativo y de hardware. En la figura 5 se observan todos los datos que muestra el comando.
+\textbf{Descripción:} muestra algunos datos técnicos del sistema operativo y de hardware, para ello se utilizó variables de entorno, el comando grep, awk y algunos otros para obtener la información de los archivos necesarios. En la figura 5 se observan todos los datos que muestra el comando.\\
+
+\noindent
+\textbf{Fragmento del código:}
+\begin{lstlisting}
+show_info() {
+    echo -e "\e[1m$1 \e[0m$2"
+}
+
+show_info "Sistema:             " "$(uname -s)"
+show_info "Hostname:            " "$HOSTNAME"
+show_info "Kernel:              " "$(uname -r)"
+
+\end{lstlisting}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{infosys.png}
+    \includegraphics[width=0.9\textwidth]{infosys.png}
     \caption{Ejecución del comando \textbf{infosys}:}
     \label{fig:ejemplo}
 \end{figure}
 
 % game -----------------------------------------------
+\newpage
 \noindent
 \textbf{Comando:} \verb|game|. \\
 \textbf{Descripción:} al ejecutar el comando se redirige a un apartado de selección de minijuegos. Hay tres minijuegos disponibles, el segundo es el típico piedra papel o tijeras en el cual se escogerá aleatoriamente la opción del oponente. El primer minijuego consiste en adivinar un número seleccionado aleatoriamente a través de pistas que se te irán dando. El último minijuego consiste en resolver cinco laberintos disponibles. 
@@ -201,10 +235,11 @@ day=${date[2]}
 %============================================================================
 \newpage
 \section{Conclusiones}
-\textbf{Hector Manuel Larios Ponce}:\\En conclusión y bajo mi prespectiva personal, el desarrollo de este proyecto de bash script ha sido un éxito y ha demostrado ser una herramienta valiosa para abordar las bases que todo profesinal de las tecnologías de la información debe tener para garantizar un optimo desempeño el ambitó profesional. A través de la implementación de este script, hemos logrado la automatización de tareas y conocer mas a fondo el sistema de archivos que maneja un sistéma Linux. La flexibilidad de Bash como lenguaje de scripting ha permitido una personalización eficiente y una fácil adaptación a las demandas del presente proyecto.\\Durante el proceso de desarrollo, hemos enfrentado desafíos que han impulsado nuestras habilidades de programación y resolución de problemas. Hemos aprendido a mejorar continuamente el código para garantizar su funcionamiento robusto y confiable.\\Además, el trabajo en equipo y la colaboración desempeñaron un papel fundamental en el éxito de este proyecto. La comunicación efectiva y la asignación de tareas nos permitieron avanzar de manera eficiente y superar obstáculos.
+\textbf{Hector Manuel Larios Ponce}:\\En conclusión y bajo mi perspectiva personal, el desarrollo de este proyecto de bash script ha sido un éxito y ha demostrado ser una herramienta valiosa para abordar las bases que todo profesional de las tecnologías de la información debe tener para garantizar un óptimo desempeño el ámbito profesional. A través de la implementación de este script, hemos logrado la automatización de tareas y conocer mas a fondo el sistema de archivos que maneja un sistema Linux. La flexibilidad de Bash como lenguaje de scripting ha permitido una personalización eficiente y una fácil adaptación a las demandas del presente proyecto.\\Durante el proceso de desarrollo, hemos enfrentado desafíos que han impulsado nuestras habilidades de programación y resolución de problemas. Hemos aprendido a mejorar continuamente el código para garantizar su funcionamiento robusto y confiable.\\Además, el trabajo en equipo y la colaboración desempeñaron un papel fundamental en el éxito de este proyecto. La comunicación efectiva y la asignación de tareas nos permitieron avanzar de manera eficiente y superar obstáculos.
 \\\\
 
-\textbf{Gabriel Patricio Balam Flores}:\\
+\textbf{Gabriel Patricio Balam Flores}:\\Los objetivos generales que se plantearon para este proyecto se han cumplido con éxito. Este proyecto fue algo exigente y nos ayudó a fortalecer algunas habilidades de investigación y de programación tanto en bash script como en nuestra lógica para resolver problemas. Claramente algunas partes del proyecto fueron más demandantes que otras, pero con una buena asignación de tareas y trabajo en equipo se pudo disolver la carga de trabajo hasta el punto que casi no se sintió.
+En lo personal creo que el aprendizaje que te deja un proyecto como este es muy grande y sienta las bases para empezar a desarrollar proyectos más ambiciosos a futuro. Aunque algunas partes del código son mejorables y la experiencia de cara al usuario se puede pulir mucho más, pienso que para el tiempo asignado el producto final es decente, ya que cumple con todas las especificaciones que se nos dieron. De tener más tiempo, creo que se podría haber hecho una experiencia más limpia e intuitiva para los usuarios.
 
 
 \end{document}
