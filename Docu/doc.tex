@@ -58,36 +58,54 @@ Descripción general de los comandos:
 % AYUDA -----------------------------------------------
 \noindent
 \textbf{Comando:} \verb|ayuda|. \\
-\textbf{Descripción:} muestra una tabla de los comandos disponibles y una breve descripción de su funcionamiento.
+\textbf{Descripción:} muestra una tabla de los comandos disponibles y una breve descripción de su funcionamiento. El comando es puramente visual, por lo que el código se basa exclusivamente en print's y echo's que imprimen el texto.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{ayuda.png}
+    \includegraphics[width=0.7\textwidth]{ayuda.png}
     \caption{Ejecución del comando \textbf{ayuda}:}
-    \label{fig:ejemplo}
-\end{figure}
-
-% FEH0 -----------------------------------------------
-\noindent
-\textbf{Comando:} \verb|ayuda|. \\
-\textbf{Descripción:} acrónimo de fecha y hora, el comando muestra la hora y fecha actual. Esta información se obtiene del archivo /proc/driver/rtc, el cual contiene información sobre el real time clock del sistema. Su funcionamiento consiste en identificar los datos rtc time y rtc date en el archivo con el comando grep, para posteriormente guardar los datos con awk en una variable local.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.7\textwidth]{feho.png}
-    \caption{Ejecución del comando \textbf{feho}:}
     \label{fig:ejemplo}
 \end{figure}
 
 % creditos -----------------------------------------------
 \noindent
 \textbf{Comando:} \verb|creditos|. \\
-\textbf{Descripción:} despliega una tabla que contiene los créditos del código.
+\textbf{Descripción:} despliega una tabla que contiene los créditos del proyecto. El comando es puramente visual, por lo que el código se basa exclusivamente en print's y echo's que imprimen la decoración.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\textwidth]{creditos.png}
+    \includegraphics[width=0.65\textwidth]{creditos.png}
     \caption{Ejecución del comando \textbf{creditos}:}
+    \label{fig:ejemplo}
+\end{figure}
+
+% FEH0 -----------------------------------------------
+\newpage
+\noindent
+\textbf{Comando:} \verb|feho|. \\
+\textbf{Descripción:} acrónimo de fecha y hora, el comando muestra la hora y fecha actual. Esta información se obtiene del archivo /proc/driver/rtc, el cual contiene información sobre el real time clock del sistema. Su funcionamiento consiste en identificar los datos rtc time y rtc date en el archivo con el comando grep, para posteriormente guardar los datos con awk en una variable local.\\
+
+\noindent
+\textbf{Código:}
+\begin{lstlisting}
+hora=$(grep "rtc_time" /proc/driver/rtc | awk '{print $3}')
+IFS=":" read -ra time <<< "$hora"
+hour=${time[0]}
+min=${time[1]}
+sec=${time[2]}
+
+
+fecha=$(grep "rtc_date" /proc/driver/rtc | awk '{print $3}')
+IFS="-" read -ra date <<< "$fecha"
+year=${date[0]}
+month=${date[1]}
+day=${date[2]}
+\end{lstlisting}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{feho.png}
+    \caption{Ejecución del comando \textbf{feho}:}
     \label{fig:ejemplo}
 \end{figure}
 
