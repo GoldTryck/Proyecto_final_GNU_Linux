@@ -125,7 +125,7 @@ main () {
                     ;;
 
                 *)
-                    echo -e "\n\t${r}***Error: comando no válido.${b}"
+                    $comando
                     ;;
             esac
         done    
