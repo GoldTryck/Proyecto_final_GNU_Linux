@@ -28,11 +28,11 @@ show_info "Kernel:              " "$(uname -r)"
 
 # Información de la CPU
 show_info "CPU:                 " "$(grep -m1 "model name" /proc/cpuinfo | cut -d: -f2- | xargs)"
-show_info "Arquitectura:        " "$(uname -m)"
+show_info "Arquitectura:        " "$(lscpu | grep -E "Architecture|Arquitectura" | awk '{print $2}')"
 
 # Información de la memoria
-show_info "Memoria total:       " "$(free -h --si | awk '/Mem:/ {print $2}')"
-show_info "Memoria disp:        " "$(free -h --si | awk '/Mem:/ {print $7}')"
+show_info "Memoria total:       " "$((($(grep MemTotal /proc/meminfo | awk '{print $2}') / 1024 / 1024)))G"
+show_info "Memoria disp:        " "$((($(grep MemAvailable /proc/meminfo | awk '{print $2}') / 1024 / 1024)))G"
 
 # Información de la GPU (requiere instalación previa de lspci)
 show_info "GPU:                 " "$(lspci | grep -i vga | cut -d: -f3- | xargs)"
